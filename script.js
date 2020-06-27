@@ -10,6 +10,7 @@ function showLoadingSpinner() {
   loader.hidden = false;
   quoteContainer.hidden = true;
 }
+// Hide Loading
 
 function removeLoadingSpinner () {
     if (!loader.hidden) {
@@ -41,7 +42,7 @@ async function getQuote() {
     }
     quoteText.innerText = data.quoteText;
     // Stop loader, Show result
-    removeLoadingSpinner;
+    removeLoadingSpinner();
   } catch (error) {
     getQuote();
     console.log("whooops", error);
