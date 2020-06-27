@@ -5,14 +5,13 @@ const twitterBtn = document.getElementById("twitter");
 const newQuoteBtn = document.getElementById("new-quote");
 const loader = document.getElementById("loader");
 
-// Show loading
-function loading() {
+
+function showLoadingSpinner() {
   loader.hidden = false;
   quoteContainer.hidden = true;
 }
-// Hide Loading
 
-function complete () {
+function removeLoadingSpinner () {
     if (!loader.hidden) {
         quoteContainer.hidden = false;
         loader.hidden = true;
@@ -20,7 +19,7 @@ function complete () {
 }
 // Get Quote From API
 async function getQuote() {
-    loading();
+    showLoadingSpinner();
   /* const proxyUrl ='https://cors-anywhere.herokuapp.com/' */
   const proxyUrl = "https://powerful-thicket-29590.herokuapp.com/";
   const apiUrl =
@@ -42,7 +41,7 @@ async function getQuote() {
     }
     quoteText.innerText = data.quoteText;
     // Stop loader, Show result
-    complete();
+    removeLoadingSpinner;
   } catch (error) {
     getQuote();
     console.log("whooops", error);
